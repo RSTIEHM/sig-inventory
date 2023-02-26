@@ -1,10 +1,11 @@
 <?php include("header.php"); ?>
 
-<?php 
-if(!isset($_SESSION["userid"])){
- header("location: index.php");
- exit();
+<?php
+if (!isset($_SESSION["userid"])) {
+  header("location: index.php");
+  exit();
 }
+
 ?>
 <div class="form-container-wrapper">
   <div class="form-container">
@@ -12,19 +13,19 @@ if(!isset($_SESSION["userid"])){
     <form action="insert_data.php" class="inventory_form" method="post" name="fileinfo">
       <div class="form-group">
         <label for="sigTag">SIGTag</label>
-        <input name="sigTag" type="text" class="form-control input-data" id="sigTagInput" aria-describedby="emailHelp" placeholder="Enter SIGTag">
+        <input required name="sigTag" type="text" class="form-control input-data" id="sigTagInput" placeholder="Enter SIGTag">
       </div>
       <div class="form-group">
         <label for="manufacturerInput">Manufacturer</label>
-        <input name="manufacturer" type="text" class="form-control input-data" id="manufacturerInput" aria-describedby="emailHelp" placeholder="Enter Manufacturer">
+        <input required name="manufacturer" type="text" class="form-control input-data" id="manufacturerInput" placeholder="Enter Manufacturer">
       </div>
       <div class="form-group">
         <label for="modelInput">Model</label>
-        <input name="model" type="text" class="form-control input-data" id="modelInput" aria-describedby="emailHelp" placeholder="Enter Model">
+        <input required name="model" type="text" class="form-control input-data" id="modelInput" placeholder="Enter Model">
       </div>
       <div class="form-group spacer">
         <label for="serialInput">Serial Number</label>
-        <input name="serialNumber" type="text" class="form-control input-data" id="serialInput" aria-describedby="emailHelp" placeholder="Enter Serial Number">
+        <input required name="serialNumber" type="text" class="form-control input-data" id="serialInput" placeholder="Enter Serial Number">
       </div>
       <div class="form-group">
         <label class="spacer" for="locationInput">Location</label>
@@ -35,24 +36,24 @@ if(!isset($_SESSION["userid"])){
       </div>
       <div class="form-group">
         <label for="assigneeInput">Assignee</label>
-        <input name="assignee" type="text" class="form-control input-data" id="assigneeInput" aria-describedby="emailHelp" placeholder="Enter Assignee">
+        <input required name="assignee" type="text" class="form-control input-data" id="assigneeInput" placeholder="Enter Assignee">
       </div>
       <div class="date-group">
         <div class="form-group">
           <label class="spacer" for="assigneeDateInput">Assigned Date</label>
-          <input class="date-input input-data" name="assigneeDate" id="assigneeDateInput" type="date">
+          <input required class="date-input input-data" name="assigneeDate" id="assigneeDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="warrantyDateInput">Warranty Date</label>
-          <input class="date-input input-data" name="warrantyDate" id="warrantyDateInput" type="date">
+          <input required class="date-input input-data" name="warrantyDate" id="warrantyDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="inventoryDateInput">Inventory Date</label>
-          <input class="date-input input-data" name="inventoryDate" id="inventoryDateInput" type="date">
+          <input required class="date-input input-data" name="inventoryDate" id="inventoryDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="disposalDateInput">Disposal Date</label>
-          <input class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
+          <input required class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
         </div>
       </div>
 

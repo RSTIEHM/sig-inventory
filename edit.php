@@ -28,19 +28,19 @@ if (isset($_GET["item"])) {
     <form action="update_data.php?itemid=<?php echo $id; ?>" class="inventory_form" method="post" name="fileinfo">
       <div class="form-group">
         <label for="sigTag">SIGTag</label>
-        <input value="<?php echo $row["sigTag"]; ?>" name="sigTag" type="text" class="form-control input-data" id="sigTagInput" aria-describedby="emailHelp" placeholder="Enter SIGTag">
+        <input required value="<?php echo $row["sigTag"]; ?>" name="sigTag" type="text" class="form-control input-data" id="sigTagInput" aria-describedby="emailHelp" placeholder="Enter SIGTag">
       </div>
       <div class="form-group">
         <label for="manufacturerInput">Manufacturer</label>
-        <input value="<?php echo $row["manufacturer"]; ?>" name="manufacturer" type="text" class="form-control input-data" id="manufacturerInput" aria-describedby="emailHelp" placeholder="Enter Manufacturer">
+        <input required value="<?php echo $row["manufacturer"]; ?>" name="manufacturer" type="text" class="form-control input-data" id="manufacturerInput" aria-describedby="emailHelp" placeholder="Enter Manufacturer">
       </div>
       <div class="form-group">
         <label for="modelInput">Model</label>
-        <input value="<?php echo $row["model"]; ?>" name="model" type="text" class="form-control input-data" id="modelInput" aria-describedby="emailHelp" placeholder="Enter Model">
+        <input required value="<?php echo $row["model"]; ?>" name="model" type="text" class="form-control input-data" id="modelInput" aria-describedby="emailHelp" placeholder="Enter Model">
       </div>
       <div class="form-group spacer">
         <label for="serialInput">Serial Number</label>
-        <input value="<?php echo $row["serialNumber"]; ?>" name="serialNumber" type="text" class="form-control input-data" id="serialInput" aria-describedby="emailHelp" placeholder="Enter Serial Number">
+        <input required value="<?php echo $row["serialNumber"]; ?>" name="serialNumber" type="text" class="form-control input-data" id="serialInput" aria-describedby="emailHelp" placeholder="Enter Serial Number">
       </div>
       <div class="form-group">
         <label class="spacer" for="locationInput">Location</label>
@@ -51,24 +51,24 @@ if (isset($_GET["item"])) {
       </div>
       <div class="form-group">
         <label for="assigneeInput">Assignee</label>
-        <input value="<?php echo $row["assignee"]; ?>" name="assignee" type="text" class="form-control input-data" id="assigneeInput" aria-describedby="emailHelp" placeholder="Enter Assignee">
+        <input required value="<?php echo $row["assignee"]; ?>" name="assignee" type="text" class="form-control input-data" id="assigneeInput" aria-describedby="emailHelp" placeholder="Enter Assignee">
       </div>
       <div class="date-group">
         <div class="form-group">
           <label class="spacer" for="assigneeDateInput">Assigned Date</label>
-          <input value="<?php echo $row["assigneeDate"]; ?>" class="date-input input-data" name="assigneeDate" id="assigneeDateInput" type="date">
+          <input required value="<?php echo $row["assigneeDate"]; ?>" class="date-input input-data" name="assigneeDate" id="assigneeDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="warrantyDateInput">Warranty Date</label>
-          <input value="<?php echo $row["warrantyDate"]; ?>" class="date-input input-data" name="warrantyDate" id="warrantyDateInput" type="date">
+          <input required value="<?php echo $row["warrantyDate"]; ?>" class="date-input input-data" name="warrantyDate" id="warrantyDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="inventoryDateInput">Inventory Date</label>
-          <input value="<?php echo $row["inventoryDate"]; ?>" class="date-input input-data" name="inventoryDate" id="inventoryDateInput" type="date">
+          <input required value="<?php echo $row["inventoryDate"]; ?>" class="date-input input-data" name="inventoryDate" id="inventoryDateInput" type="date">
         </div>
         <div class="form-group">
           <label class="spacer" for="disposalDateInput">Disposal Date</label>
-          <input value="<?php echo $row["disposalDate"]; ?>" class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
+          <input required value="<?php echo $row["disposalDate"]; ?>" class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
         </div>
       </div>
 
