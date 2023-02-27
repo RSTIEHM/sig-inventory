@@ -1,26 +1,28 @@
 <?php include("header.php"); ?>
 <?php include('db_con.php'); ?>
 
+<?php 
+
+
+?>
+
 <header class="header">
   <img src="./stills/Logo-SIG original.png" alt="Logo">
 
   <form action="login_user.php" method="POST">
     <div class="form-group login-form">
       <?php
-      if (isset($_SESSION["userid"])) {
+        if (isset($_SESSION["userid"])) {
+        ?>
+          <input name='logout-input' type='submit' class='btn btn-success log-in-btn' value='Log Out' />
+        <?php
+        } else {
+        ?>
+          <input name='pass-input' type='password' class='form-control input-data' id='loginInput' placeholder='Enter Password'>
+          <input name='login-input' type='submit' class='btn btn-success log-in-btn' value='Log In' />
+        <?php
+        }
       ?>
-        <input name='logout-input' type='submit' class='btn btn-success log-in-btn' value='Log Out' />
-      <?php
-      } else {
-      ?>
-        <input name='pass-input' type='password' class='form-control input-data' id='loginInput' placeholder='Enter Password'>
-        <input name='login-input' type='submit' class='btn btn-success log-in-btn' value='Log In' />
-      <?php
-      }
-
-      ?>
-
-
     </div>
   </form>
 
@@ -28,28 +30,28 @@
 </header>
 
 <div class="table-wrapper">
+
   <div class="addNew-count-container">
     <h5 class="counter">
       <?php
-      $query = "SELECT * FROM `item` WHERE `active` = 'T'";
-      $result = mysqli_query($con, $query);
-      if ($result) {
-        $row = mysqli_num_rows($result);
-        if ($row) {
-          echo $row . " Items";
-        }
-      }
-      ?>
 
+        $query = "SELECT * FROM `item` WHERE `active` = 'T'";
+        $result = mysqli_query($con, $query);
+        if ($result) {
+          $row = mysqli_num_rows($result);
+          if ($row) {
+            echo $row . " Items";
+          }
+        }
+      ?>
     </h5>
     <?php
-    if (isset($_SESSION["userid"])) {
+      if (isset($_SESSION["userid"])) {
+      ?>
+        <a class="btn btn-primary btn-add-new" href="add.php">Add New</a>
+      <?php
+      }
     ?>
-      <a class="btn btn-primary btn-add-new" href="add.php">Add New</a>
-    <?php
-    }
-    ?>
-
   </div>
 
   <table class="table table-bordered table-striped">
@@ -67,17 +69,16 @@
         <th scope="col">Disposal Date</th>
         <th scope="col">Comment</th>
         <?php
-        if (isset($_SESSION["userid"])) {
+          if (isset($_SESSION["userid"])) {
         ?>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         <?php
-        }
+          }
         ?>
-
-
       </tr>
     </thead>
+
     <tbody class="main-list-output">
       <?php
       $query = "SELECT * FROM `item` WHERE `active` = 'T'";
