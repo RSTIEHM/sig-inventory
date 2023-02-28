@@ -1,10 +1,7 @@
 <?php include("header.php"); ?>
 <?php include('db_con.php'); ?>
 
-<?php
 
-
-?>
 
 <header class="header">
   <img src="./stills/Logo-SIG original.png" alt="Logo">
@@ -35,7 +32,7 @@
     <h5 class="counter">
       <?php
 
-      $query = "SELECT * FROM `item` WHERE `active` = 'T'";
+      $query = "SELECT * FROM `item`";
       $result = mysqli_query($con, $query);
       if ($result) {
         $row = mysqli_num_rows($result);
@@ -48,8 +45,7 @@
     <?php
     if (isset($_SESSION["userid"])) {
     ?>
-      <a class="btn btn-primary btn-add-new" href="add.php">Add New</a>
-      <a class="btn btn-success btn-add-new" href="view-all.php">View All</a>
+      <a class="" href="index.php"><<< Back</a>
     <?php
     }
     ?>
@@ -69,20 +65,13 @@
         <th scope="col">Inventory Date</th>
         <th scope="col">Disposal Date</th>
         <th scope="col">Comment</th>
-        <?php
-        if (isset($_SESSION["userid"])) {
-        ?>
-          <th scope="col">Edit</th>
-          <th scope="col">Surplus</th>
-        <?php
-        }
-        ?>
+        <th scope="col">Status</th>
       </tr>
     </thead>
 
     <tbody class="main-list-output">
       <?php
-      $query = "SELECT * FROM `item` WHERE `active` = 'T'";
+      $query = "SELECT * FROM `item`";
       $result = mysqli_query($con, $query);
       if (!$result) {
         die('Fail');
@@ -101,23 +90,7 @@
             <td><?php echo $row["inventoryDate"]; ?></td>
             <td><?php echo $row["disposalDate"]; ?></td>
             <td><?php echo $row["comment"]; ?></td>
-            <?php
-
-            if (isset($_SESSION["userid"])) {
-            ?>
-              <td>
-                <a href="edit.php?item=<?php echo $row["id"]; ?>">
-                  <img data-action="edit" class="font-icon" src="./stills/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-                </a>
-              </td>
-              <td>
-                <a href="delete.php?item=<?php echo $row["id"]; ?>">
-                  <img data-action="delete" class="font-icon" src="./stills/reduce_capacity_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-                </a>
-              </td>
-            <?php
-            }
-            ?>
+            <td><?php echo $row["active"]; ?></td>
           </tr>
       <?php
         }

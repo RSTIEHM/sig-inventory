@@ -2,6 +2,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+a {
+  font-weight: bold;
+}
+
 .spacer {
   /* margin-bottom: 5px; */
   display: block;
@@ -87,7 +91,7 @@ textarea {
 }
 
 .table-header-output {
-  text-align: left;
+  text-align: center;
   background-color: black;
   color: #fff;
 }

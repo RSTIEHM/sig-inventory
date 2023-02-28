@@ -52,8 +52,8 @@ if (!isset($_SESSION["userid"])) {
           <input required class="date-input input-data" name="inventoryDate" id="inventoryDateInput" type="date">
         </div>
         <div class="form-group">
-          <label class="spacer" for="disposalDateInput">Disposal Date</label>
-          <input required class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
+          <label class="spacer" for="disposalDateInput">Surplus Date</label>
+          <input class="date-input input-data" name="disposalDate" id="disposalDateInput" type="date">
         </div>
       </div>
 
