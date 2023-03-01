@@ -1,7 +1,15 @@
 <?php include("header.php"); ?>
 <?php include('db_con.php'); ?>
 
+<?php
 
+function formatDate($str)
+{
+  $result = explode("-", $str);
+  return $result[1] . "-" . $result[2] . "-" . $result[0];
+}
+
+?>
 
 <header class="header">
   <img src="./stills/Logo-SIG original.png" alt="Logo">
@@ -45,10 +53,11 @@
     <?php
     if (isset($_SESSION["userid"])) {
     ?>
-      <a class="" href="index.php"><<< Back</a>
-    <?php
-    }
-    ?>
+      <a class="" href="index.php">
+        <<< Back</a>
+        <?php
+      }
+        ?>
   </div>
 
   <table class="table table-bordered table-striped">
@@ -85,17 +94,17 @@
             <td><?php echo $row["serialNumber"]; ?></td>
             <td><?php echo $row["location"]; ?></td>
             <td><?php echo $row["assignee"]; ?></td>
-            <td><?php echo $row["assigneeDate"]; ?></td>
-            <td><?php echo $row["warrantyDate"]; ?></td>
-            <td><?php echo $row["inventoryDate"]; ?></td>
-            <td><?php echo $row["disposalDate"]; ?></td>
+            <td><?php echo formatDate($row["assigneeDate"]); ?></td>
+            <td><?php echo formatDate($row["warrantyDate"]); ?></td>
+            <td><?php echo formatDate($row["inventoryDate"]); ?></td>
+            <td><?php echo formatDate($row["disposalDate"]); ?></td>
             <td><?php echo $row["comment"]; ?></td>
-            <?php 
-              if($row["active"] == "F") {
-                echo "<td class='red-x'>&#x2713;</td>";
-              } else {
-                echo "<td class='green-v'>&#x2715;</td>";
-              }
+            <?php
+            if ($row["active"] == "F") {
+              echo "<td class='red-x'>&#x2713;</td>";
+            } else {
+              echo "<td class='green-v'>&#x2715;</td>";
+            }
             ?>
 
           </tr>

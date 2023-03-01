@@ -3,6 +3,8 @@ session_start();
 include("db_con.php");
 // include("functions.php");
 
+
+
 function loginUser($con, $pass)
 {
   $query = "SELECT * FROM `users` WHERE `password`='$pass' LIMIT 1";
