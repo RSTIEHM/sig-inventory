@@ -92,9 +92,9 @@
             <td><?php echo $row["comment"]; ?></td>
             <?php 
               if($row["active"] == "F") {
-                echo "<td>&#x2713;</td>";
+                echo "<td class='red-x'>&#x2713;</td>";
               } else {
-                echo "<td>&#x2715;</td>";
+                echo "<td class='green-v'>&#x2715;</td>";
               }
             ?>
 
