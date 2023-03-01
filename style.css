@@ -6,6 +6,10 @@ a {
   font-weight: bold;
 }
 
+.delete-btn-1:hover {
+  cursor: pointer;
+}
+
 .spacer {
   /* margin-bottom: 5px; */
   display: block;

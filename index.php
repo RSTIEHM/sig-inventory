@@ -111,9 +111,11 @@
                 </a>
               </td>
               <td>
-                <a href="delete.php?item=<?php echo $row["id"]; ?>">
+                <img data-sig="<?php echo $row["sigTag"] ?>" class="delete-btn-1" data-action="delete" data-id="<?php echo $row["id"] ?>" class="font-icon" src="./stills/reduce_capacity_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                <!-- <a href="delete.php?item=<?php //echo $row["id"]; 
+                                              ?>">
                   <img data-action="delete" class="font-icon" src="./stills/reduce_capacity_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-                </a>
+                </a> -->
               </td>
             <?php
             }
@@ -132,5 +134,27 @@
 
 
 </div>
+<script>
+  let mainOutput = document.querySelector(".main-list-output");
+  mainOutput.addEventListener("click", (e) => {
+    let deleteID;
+    let sigTag;
+    if (e.target.dataset.action) {
+      deleteID = e.target.dataset.id
+      sigTag = e.target.dataset.sig
+      let result = confirm(`Are You Sure You Want To Delete ${sigTag}?`)
+      if (result) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            location.reload();
+          }
+        };
+        xmlhttp.open("GET", "delete.php?item=" + deleteID, true);
+        xmlhttp.send();
+      } 
+    }
 
+  })
+</script>
 <?php include('footer.php'); ?>
