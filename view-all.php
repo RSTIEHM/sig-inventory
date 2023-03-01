@@ -90,7 +90,14 @@
             <td><?php echo $row["inventoryDate"]; ?></td>
             <td><?php echo $row["disposalDate"]; ?></td>
             <td><?php echo $row["comment"]; ?></td>
-            <td><?php echo $row["active"]; ?></td>
+            <?php 
+              if($row["active"] == "F") {
+                echo "<td>&#x2713;</td>";
+              } else {
+                echo "<td>&#x2715;</td>";
+              }
+            ?>
+
           </tr>
       <?php
         }

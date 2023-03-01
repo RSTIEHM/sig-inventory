@@ -142,7 +142,7 @@
     if (e.target.dataset.action) {
       deleteID = e.target.dataset.id
       sigTag = e.target.dataset.sig
-      let result = confirm(`Are You Sure You Want To Delete ${sigTag}?`)
+      let result = confirm(`Are You Sure You Want To Surplus ${sigTag}?`)
       if (result) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
