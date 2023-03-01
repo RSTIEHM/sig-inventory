@@ -143,7 +143,7 @@ function formatDate($str)
   mainOutput.addEventListener("click", (e) => {
     let deleteID;
     let sigTag;
-    if (e.target.dataset.action) {
+    if (e.target.dataset.action === "delete") {
       deleteID = e.target.dataset.id
       sigTag = e.target.dataset.sig
       let result = confirm(`Are You Sure You Want To Surplus ${sigTag}?`)
